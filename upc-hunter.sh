@@ -16,7 +16,7 @@ else
         if [ -r "$file" ]; then
                 echo -e 'Working on it......\n'
                 while read target; do 
-                        if [[ $(curl -s -X POST "https://$target" | grep '“status”: “ok”' > /dev/null) ]]; then
+                        if [[ $(curl -s -X PURGE "https://$target" | grep '“status”: “ok”' > /dev/null) ]]; then
                                 echo $target
                         fi
                 done < $file
