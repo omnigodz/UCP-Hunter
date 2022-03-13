@@ -10,7 +10,7 @@ echo -e $developer
 file=$1
 
 if [ "$#" = 0 ]; then
-        echo -e 'Usage: bash upc-hunter.sh filename\n'
+        echo -e 'Usage: bash ucp-hunter.sh filename or ./ucp-hunter.sh filename\n'
         exit
 else
         if [ -r "$file" ]; then
