@@ -15,8 +15,11 @@ if [ "$#" = 0 ]; then
 else
         if [ -r "$file" ]; then
                 echo -e 'Working on it......\n'
-                while read target; do 
-                        if [[ $(curl -s -X PURGE "https://$target" | grep '“status”: “ok”' > /dev/null) ]]; then
+                while read target
+		do
+                        curl -s -k -m 10 -X PURGE "https://$target" | grep '"status": "ok"' > /dev/null
+			if [ $? = 0 ]
+			then
                                 echo $target
                         fi
                 done < $file
